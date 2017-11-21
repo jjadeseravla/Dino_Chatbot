@@ -1,0 +1,1765 @@
+
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html lang="en" class="no-js oldie">
+<![endif]-->
+<!--[if IE 9 ]>
+<html lang="en" class="no-js ie9">
+<![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en" class="no-js">
+    <!--<![endif]-->
+
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="Find out how to visit the dinosaurs, get here, see exhibitions, galleries, what's on, buy tickets, and find our cafés and shops.">
+	<meta name="twitter:widgets:csp" content="on">
+	<title>Visit | Natural History Museum</title>
+
+
+    <meta charset="utf-8" />
+
+    <!-- WR-1074 - add Google Optimise for A/B testing -->
+	<!-- Initialise the dataLayer -->
+	<script>dataLayer = [];</script>
+
+	<!-- Page hiding snippet -->
+	<style>.async-hide { opacity: 0 !important} </style>
+	<script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+	h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+	(a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+	})(window,document.documentElement,'async-hide','dataLayer',4000,
+	{'GTM-5D4H9KX':true});</script>
+	<!-- End page hiding snippet -->
+
+	<!-- Google Analytics Snippet - No Pageview Fired -->
+	<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-57477456-1', 'auto');
+	ga('require', 'linker');
+	ga('linker:autoLink', ['secpay.com','nhmimages.com','nhm.ac.uk'] );
+	ga('require', 'GTM-5D4H9KX');
+	</script>
+	<!-- End Google Analytics -->
+
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5TDGNT');</script>
+	<!-- End Google Tag Manager -->
+	<!-- END WR-1074 -->
+
+
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <title>Chatbot</title>
+  <style>
+  body {
+  	color: #00F; font-weight: bold; font-size: 60px; background: #ADD8E6; font-family: arial;
+  	/*background-image: url("bonedino.png"); background-repeat: no-repeat; background-position: right;*/
+  }
+  span {
+  	color: #711;
+  }
+  ::-webkit-input-placeholder {
+  	color: #000000;
+  }
+  #main {
+  	position: fixed; top: 60px; right: 228px; width: 180px;
+  	border: 0px solid #421;
+  	font-family: arial;
+    z-index: 100;
+    color: green;
+  }
+  #main div {
+  	margin: 10px;
+  	width: 100%;
+  }
+  #input {
+  	border: 0; background: #FFFFFF; padding: 5px; border: 1px solid #0F0; height: 200px; width: 170px; font-size: 26px; font-family: arial;
+    overflow:hidden;
+  }
+  </style>
+  </head>
+  <body>
+  	<!-- <h1>Natural History Museum Chatbot	<img src="images/bonedino.png" alt="Smiley face" align="right"></h1> -->
+  <div id="main">
+  	<div>You: <span id="You"></span></div>
+  	<div><img src="images/dino0.jpg" alt="Smiley face">NHM Dino: <span id="NHM"></span></div>
+  	<div><input id="input" type="text" placeholder="start to chat..." autocomplete="off"/></div>
+  </div>
+  <script type="text/javascript">
+
+  var trigger = [
+  	["hi","hey","hello"],
+  	["how are you", "how is life", "how are things"],
+  	["what is hinze hall", "tell me about hinze hall", "what does the main hall have", "hinze hall"],
+  	["what are you doing", "what is going on"],
+  	["how old are you"],
+  	["who are you", "are you human", "are you bot", "are you human or bot"],
+  	["who created you", "who made you"],
+  	["your name please",  "your name", "may i know your name", "what is your name"],
+  	["i love you"],
+  	["happy", "good"],
+  	["bad", "bored", "tired"],
+  	["help me", "tell me a story", "tell me joke", "joke"],
+  	["ah", "yes", "ok", "okay", "nice", "thanks", "thank you"],
+  	["exhibitions", "what is on", "what is happening"],
+  	["is there a long queue", "queue", "how long is the queue", "queue time"],
+  	["where is Dippy", "where is the dinosaur from the main hall", "dippy"],
+  	["bye", "good bye", "goodbye", "see you later"],
+  	["how do i get to the museum", "directions to museum", "directions", "transport to the museum", "transport"],
+  ];
+  var reply = [
+  	["Hi","Hey","Hello"],
+  	["Fine", "Pretty well", "Fantastic"],
+  	["It has mammals, fish, birds, minerals, plants and insects, and stories about people whose work has shaped the Museum.", "it's the main hall"],
+  	["Nothing much", "About to go to sleep", "Can you guess?", "I don't know actually"],
+  	["I am 1 day old"],
+  	["I am just a bot, a dinosaur bot!", "I am a Dino-bot. What are you?"],
+  	["Jade", "My God"],
+  	["I am nameless", "I don't have a name"],
+  	["I love you too", "Me too"],
+  	["Have you ever felt bad?", "Glad to hear it"],
+  	["Why?", "Why? You shouldn't!", "Try watching TV"],
+  	["I will", "What about?"],
+  	["Tell me a story", "Tell me a joke", "Tell me about yourself", "You are welcome"],
+  	["The Venom and Whales exhibitions are now on, a well as WPY", "Please check our site:http://www.nhm.ac.uk/visit/exhibitions.html"],
+  	["Normally about 10 mins, however on weekends and school holidays, it can be 30 mins"],
+  	["Dippy has gone on tour"],
+  	["Bye", "Goodbye", "See you later"],
+  	["The nearest tube is South Kensington (on the Piccadilly, District and Circle lines)"]
+  ];
+  var alternative = ["Haha...", "Eh...", "I don't know", "I don't have any info on that", "I'm confused!", "Please look at NHM website for that", "I can't answer that, I need help!"];
+  document.querySelector("#input").addEventListener("keypress", function(e){
+  	var key = e.which || e.keyCode; //determines if enter key was pressed
+  	if(key === 13){ //Enter button
+  		var input = document.getElementById("input").value;
+  		document.getElementById("You").innerHTML = input;
+  		output(input);
+  	}
+  });
+  function output(input){
+  	try{ //allows you to define a block of code to be tested for errors while it is being executed.
+  		var product = input + "=" + eval(input);
+  	} catch(e){ //allows you to define a block of code to be executed, if an error occurs in the try block.
+  		var text = (input.toLowerCase()).replace(/[^\w\s\d]/gi, ""); //remove all chars except words, space and
+  		text = text.replace(/ a /g, " ").replace(/i feel /g, "").replace(/whats/g, "what is").replace(/please /g, "").replace(/ please/g, "");
+  		if(compare(trigger, reply, text)){
+  			var product = compare(trigger, reply, text);
+  		} else {
+  			var product = alternative[Math.floor(Math.random()*alternative.length)];
+  		}
+  	}
+  	document.getElementById("NHM").innerHTML = product;
+  	// speak(product);
+  	document.getElementById("input").value = ""; //clear input value
+  }
+  function compare(arr, array, string){
+  	var item;
+  	for(var x=0; x<arr.length; x++){
+  		for(var y=0; y<array.length; y++){
+  			if(arr[x][y] == string){
+  				items = array[x];
+  				item =  items[Math.floor(Math.random()*items.length)];
+  			}
+  		}
+  	}
+  	return item;
+  }
+  // function speak(string){
+  // 	var utterance = new SpeechSynthesisUtterance();
+  // 	utterance.voice = speechSynthesis.getVoices().filter(function(voice){return voice.name == "Agnes";})[0];
+  // 	utterance.text = string;
+  // 	utterance.lang = "en-US";
+  // 	utterance.volume = 1; //0-1 interval
+  // 	utterance.rate = 1;
+  // 	utterance.pitch = 2; //0-2 interval
+  // 	speechSynthesis.speak(utterance);
+  // }
+  </script>
+  </body>
+  </html>
+
+
+
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+
+
+
+
+
+	<link rel="stylesheet" href="http://www.nhm.ac.uk/etc/designs/nhmwww/webfont/stylesheet.css"/>
+
+        <link rel="stylesheet" href="http://www.nhm.ac.uk/etc/clientlibs/nhmwww/main/normalize.css" type="text/css">
+
+        <link rel="stylesheet" href="http://www.nhm.ac.uk/etc/clientlibs/nhmwww/main/foundation.css" type="text/css">
+
+        <link rel="stylesheet" href="http://www.nhm.ac.uk/etc/clientlibs/nhmwww/main.css" type="text/css">
+
+
+        <!-- START CQ.JQUERY FOR AUTHOR ONLY -->
+
+        <!-- END CQ.JQUERY FOR AUTHOR ONLY -->
+        <!-- START JQUERY 1.11.2 CDN -->
+        <script src="https://code.jquery.com/jquery-1.11.2.min.js" integrity="sha256-Ls0pXSlb7AYs7evhd+VLnWsZ/AqEHcXBeMZUycz/CcA=" crossorigin="anonymous"></script>
+        <!-- END JQUERY 1.11.2 CDN -->
+        <!--  START NHMWWW.MAIN -->
+        <script type="text/javascript" src="http://www.nhm.ac.uk/etc/clientlibs/nhmwww/main.js"></script>
+
+        <!--  END NHMWWW.MAIN -->
+
+
+		<style>
+			.js--carousel-image {
+				display: none;
+			}
+		</style>
+
+
+
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="http://www.nhm.ac.uk/etc/designs/nhmwww/favicon.ico">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="http://www.nhm.ac.uk/etc/designs/nhmwww/favicon.ico">
+
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5TDGNT"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+
+
+
+
+
+
+
+
+
+
+<header class="global-header cf">
+  <div class="megamenu">
+
+
+
+
+
+
+
+
+
+
+
+
+	<div class="global-header--container row cf">
+		<div class="global-header--menu">
+			<div class="global-header--bar global-header--logo__container row cf">
+					<a href="/" class="global-header--logo"><span class="ir">Natural History Museum</span></a>
+					<a href="#" id="mobile-navigation" class="mobile global-header--menu__trigger">
+						<i class="ico svg-ico ico-menu-open" data-svg-src="http://www.nhm.ac.uk/etc/designs/nhmwww/img/svg-icons/icon_l_general_menu.svg" data-svg-title="icon__menu" data-alt="Open Menu" data-stroke-width="1" data-fallback="http://www.nhm.ac.uk/etc/designs/nhmwww/img/mobile-menu.png"></i>
+						<i class="ico svg-ico ico-menu-close" data-svg-src="http://www.nhm.ac.uk/etc/designs/nhmwww/img/svg-icons/icon_l_general_close.svg" data-svg-title="icon__menu_close" data-alt="Close Menu" data-stroke-width="10" data-base-color="#A8A8A8" data-fallback="http://www.nhm.ac.uk/etc/designs/nhmwww/img/mobile-menu.png"></i>
+						<span class="ir">Menu</span>
+					</a>
+			</div>
+			<nav class="global-header--bar global-header--menu__nav row cf">
+					<ul class="global-header--nav-list cf">
+						<li class="global-header--nav-list__item link-visit">
+							<a class="global-header--nav-list__link" href="/visit.html">Visit</a>
+						</li>
+						<li class="global-header--nav-list__item link-discover">
+							<a class="global-header--nav-list__link" href="/discover.html">Discover</a>
+							<div class="global-header--nav-list__item--subnav-link">
+								<img id="subnav__discover--open" src="http://www.nhm.ac.uk/etc/designs/nhmwww/img/png-icons/icon_l_chevron_down.png" alt="Open Disover secondary menu">
+								<img id="subnav__discover--close" src="http://www.nhm.ac.uk/etc/designs/nhmwww/img/png-icons/icon_l_chevron_up.png" alt="Close Disover secondary menu" style="display: none;">
+							</div>
+						</li>
+								<li class="global-header--menu__subnav-discover">
+									<a href="/discover/oceans.html" data-gtm="subnav-link">Oceans</a>
+								</li>
+								<li class="global-header--menu__subnav-discover">
+									<a href="/discover/human-evolution.html" data-gtm="subnav-link">Human evolution</a>
+								</li>
+								<li class="global-header--menu__subnav-discover">
+									<a href="/discover/dino-directory/index.html" data-gtm="subnav-link">Dinosaurs</a>
+								</li>
+								<li class="global-header--menu__subnav-discover">
+									<a href="/about-us/news.html" data-gtm="subnav-link">News</a>
+								</li>
+								<li class="global-header--menu__subnav-discover" data-gtm="subnav-link">
+									<a href="https://blog.nhm.ac.uk/">Blog</a>
+								</li>
+						<li class="global-header--nav-list__item link-take-part">
+							<a class="global-header--nav-list__link" href="/take-part.html">Take part</a>
+						</li>
+						<li class="global-header--nav-list__item link-support-us">
+							<a class="global-header--nav-list__link" href="/support-us.html">Join and support</a>
+						</li>
+						<li class="global-header--nav-list__item link-shop">
+							<a class="global-header--nav-list__link" href="https://www.nhmshop.co.uk/?utm_source=nhm.ac.uk&utm_medium=referral&utm_campaign=general&utm_content=meganav">Shop</a>
+						</li>
+						<li class="global-header--nav-list__item link-schools">
+							<a class="global-header--nav-list__link" href="/schools.html">Schools</a>
+						</li>
+						<li class="global-header--nav-list__item link-our-science">
+							<a class="global-header--nav-list__link" href="/our-science.html">Our science</a>
+						</li>
+						<li class="global-header--nav-list__item link-search">
+							<a class="global-header--nav-list__link" href="#" id="global-header--search-bar__button">Search</a>
+						</li>
+					</ul>
+			</nav>
+		</div>
+		<div class="global-header--info__container">
+			<ul class="global-header--info">
+				<li class="global-header--info__item">
+					<a href="/visit/getting-here.html">
+					<i class="ico svg-ico" data-svg-src="http://www.nhm.ac.uk/etc/designs/nhmwww/img/svg-icons/icon_s_feature_ticket_small.svg" data-svg-title="icon__ticket" data-alt="Admission" data-base-color="#000000" data-stroke-width="1" data-fallback="http://www.nhm.ac.uk/etc/designs/nhmwww/img/icons/nav-ticket.png"></i>
+					Hours and admission</a>
+				</li>
+				<li class="global-header--info__item">
+					<a href="/support-us/membership.html">
+					<i class="ico svg-ico" data-svg-src="http://www.nhm.ac.uk/etc/designs/nhmwww/img/svg-icons/icon_s_feature_membership_small.svg" data-svg-title="icon__membership" data-alt="Membership" data-base-color="#000000" data-stroke-width="1" data-fallback="http://www.nhm.ac.uk/etc/designs/nhmwww/img/icons/nav-id.png"></i>
+					Become a Member</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="global-header--subnav subnav__discover js-global-header--nav-list__hide">
+		<div class="row cf">
+			<ul>
+				<li><a href="/discover/oceans.html" data-gtm="subnav-link">Oceans</a></li>
+				<li><a href="/discover/human-evolution.html" data-gtm="subnav-link">Human evolution</a></li>
+				<li><a href="/discover/dino-directory/index.html" data-gtm="subnav-link">Dinosaurs</a></li>
+				<li><a href="/about-us/news.html" data-gtm="subnav-link">News</a></li>
+				<li><a href="https://blog.nhm.ac.uk/" data-gtm="subnav-link">Blog</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="global-header--subnav subnav__deworm js-global-header--nav-list__hide">
+		<div class="row cf">
+			<ul>
+				<li><a href="/our-science/our-work/sustainability/deworm3.html" data-gtm="subnav-link-deworm">DeWorm3</a></li>
+				<li><a href="/our-science/our-work/sustainability/deworm3/about.html" data-gtm="subnav-link-deworm">About</a></li>
+				<li><a href="/our-science/our-work/sustainability/deworm3/who-we-are.html" data-gtm="subnav-link-deworm">Who we are</a></li>
+				<li><a href="/our-science/our-work/sustainability/deworm3/objectives.html" data-gtm="subnav-link-deworm">Objectives</a></li>
+				<li><a href="/our-science/our-work/sustainability/deworm3/research-tool-kit.html" data-gtm="subnav-link-deworm">Research tool kit</a></li>
+				<li><a href="/our-science/our-work/sustainability/deworm3/publications.html" data-gtm="subnav-link-deworm">Publications</a></li>
+				<li><a href="/our-science/our-work/sustainability/deworm3/news.html" data-gtm="subnav-link-deworm">News</a></li>
+			</ul>
+		</div>
+	</div>
+
+</div>
+	<div class="global-header--search-bar">
+		<div class="global-header--search-bar__blocking-overlay"></div>
+		<div class="global-header--search-bar__overlay"></div>
+		<div class="global-header--search-bar__content">
+			<a href="#" id="global-header--search-bar__close"><i class="ico svg-ico ico-menu-close global-header--search-bar__close-icon" data-svg-src="http://www.nhm.ac.uk/etc/designs/nhmwww/img/svg-icons/icon_l_general_close.svg" data-svg-title="icon__menu_close" data-alt="Close Menu" data-stroke-width="10" data-base-color="#A8A8A8" data-fallback="http://www.nhm.ac.uk/etc/designs/nhmwww/img/mobile-menu.png" id="svg-icon__menu_close-4"></i></a>
+				<form action="https://www.nhm.ac.uk/search.html" method="get" class="global-header--search-bar__form">
+
+						<input type="text" name="q" class="text global-header--search-bar__input" placeholder="Search">
+						<button class="submit global-header--search-bar__submit-button">
+							<i class="ico svg-ico desktop global-header--search-bar__search-icon" data-svg-src="http://www.nhm.ac.uk/etc/designs/nhmwww/img/svg-icons/icon_s_general_search_small.svg" data-svg-title="icon__search" data-alt="Search" data-stroke-width="2" data-base-color="#FFFFFF" data-fallback="http://www.nhm.ac.uk/etc/designs/nhmwww/img/icons/search-nav.png" id="svg-icon__search-6"></i>
+						</button>
+
+				</form>
+
+			<div class="global-header--search-bar__popular-search-terms">
+				<h2 class="global-header--search-bar__heading">Popular search terms:</h2>
+				<ul>
+				<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/visit/exhibitions/venom-killer-and-cure.html">Venom</a></li>
+				<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/visit/exhibitions/wildlife-photographer-of-the-year-53.html"> Wildlife Photographer of the Year</a></li>
+				<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/bluewhale">Hope the blue whale</a></li>
+				<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/discover/oceans.html">Oceans</a></li>
+				<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/search.html?q=dinosaurs">Dinosaurs</a></li>
+				<li class="global-header--search-bar__link"><a href="http://www.nhm.ac.uk/take-part/identify-nature.html">Identify a fossil</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+</header>
+	<div class="main-section template--nhm-page visit">
+
+
+
+
+
+
+
+
+
+
+
+	<div class="main-section">
+		<div class="title">
+    <div class="row title-bar ">
+	    <div class="small-12 medium-12 large-12 columns">
+	    <h1>Visit</h1>
+
+	    </div>
+
+    </div></div>
+
+		<div class="par parsys"><div class="herosection section">
+<div class="hero">
+		<div class="par2 parsys"><div class="parbase section nhm-carousel">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--  START OF CAROUSEL -->
+<div class="carousel-wrapper">
+
+
+    <ul class="carousel"
+        data-nhm-thumbnails="false"
+    	data-nhm-autoscroll="false"
+    	data-nhm-autoscroll-duration="4000"
+    	data-nhm-grouping="1">
+
+		<!-- <p>http://www.nhm.ac.uk/content/dam/nhmwww/visit/Exhibitions/Venom/venom-hero-desktop-final.jpg</p>
+		<p>http://www.nhm.ac.uk/content/nhmwww/en/home/visit/exhibitions/venom-killer-and-cure.html</p>
+		<p>Enter the realm of&nbsp;venomous&nbsp;creatures in this eye-opening exhibition. Opens 10 November.</p>
+		static-->
+
+
+
+        	<li data-thumb="http://www.nhm.ac.uk/content/dam/nhmwww/visit/Exhibitions/Venom/venom-hero-desktop-final.jpg"  data-gtm="herosection-major-carousel-0">
+            <a href="/visit/exhibitions/venom-killer-and-cure.html">
+
+	            <div class="adaptiveimage image carousel-image parbase image_0">
+
+
+
+
+<!-- WR-890: if user has selected "Add bottom margin" in CMS dialog box, wrap entire component with class "mb-20" (margin-bottom 20px) -->
+
+
+
+		<!-- WR-1020: replace Interchange with Picture -->
+		<picture>
+			<source media="(max-width: 480px)"
+					srcset="http://www.nhm.ac.uk/content/dam/nhmwww/visit/Exhibitions/Venom/venom-hero-mobile-final.jpg 768w" />
+            <source media="(min-width: 481px) and (max-width: 768px)"
+					srcset="http://www.nhm.ac.uk/content/nhmwww/en/home/visit/jcr:content/par/herosection/par2/nhm_carousel/image_0.img.1024.high.jpg/1510246932839.jpg 753w" />
+            <source media="(min-width: 769px) and (max-width: 1024px)"
+					srcset="http://www.nhm.ac.uk/content/nhmwww/en/home/visit/jcr:content/par/herosection/par2/nhm_carousel/image_0.img.1024.high.jpg/1510246932839.jpg 1024w" />
+            <source media="(min-width: 1025px)"
+					srcset="http://www.nhm.ac.uk/content/dam/nhmwww/visit/Exhibitions/Venom/venom-hero-desktop-final.jpg" />
+			<img class="js--carousel-image" src="http://www.nhm.ac.uk/content/dam/nhmwww/visit/Exhibitions/Venom/venom-hero-desktop-final.jpg" alt="Venom: Killer and cure"/>
+		</picture>
+
+
+
+
+
+</div>
+
+
+
+	            	<div class="caption-outer-wrapper">
+	                    <div class="caption-inner-wrapper">
+			            	<div class="caption">
+
+			                		<h2>Venom: Killer and cure</h2>
+
+			                	<p>
+
+					                Enter the realm of&nbsp;venomous&nbsp;creatures in this eye-opening exhibition. Opens 10 November.
+			        	        </p>
+			            	</div>
+		            	</div>
+	            	</div>
+
+
+            </a>
+        </li>
+
+
+		<!-- <p>http://www.nhm.ac.uk/content/dam/nhmwww/visit/Exhibitions/WPY53/wpy53-hero-desktop.jpg</p>
+		<p>http://www.nhm.ac.uk/content/nhmwww/en/home/visit/exhibitions/wildlife-photographer-of-the-year-53.html</p>
+		<p>See the world's best nature photography. Now open.<br>
+</p>
+		static-->
+
+
+
+        	<li data-thumb="http://www.nhm.ac.uk/content/dam/nhmwww/visit/Exhibitions/WPY53/wpy53-hero-desktop.jpg"  data-gtm="herosection-major-carousel-1">
+            <a href="/visit/exhibitions/wildlife-photographer-of-the-year-53.html">
+
+	            <div class="adaptiveimage image carousel-image parbase image_1">
+
+
+
+
+<!-- WR-890: if user has selected "Add bottom margin" in CMS dialog box, wrap entire component with class "mb-20" (margin-bottom 20px) -->
+
+
+
+		<!-- WR-1020: replace Interchange with Picture -->
+		<picture>
+			<source media="(max-width: 480px)"
+					srcset="http://www.nhm.ac.uk/content/dam/nhmwww/visit/Exhibitions/WPY53/wpy53-hero-mobile.jpg 768w" />
+            <source media="(min-width: 481px) and (max-width: 768px)"
+					srcset="http://www.nhm.ac.uk/content/nhmwww/en/home/visit/jcr:content/par/herosection/par2/nhm_carousel/image_1.img.1024.high.jpg/1504871427493.jpg 753w" />
+            <source media="(min-width: 769px) and (max-width: 1024px)"
+					srcset="http://www.nhm.ac.uk/content/nhmwww/en/home/visit/jcr:content/par/herosection/par2/nhm_carousel/image_1.img.1024.high.jpg/1504871427493.jpg 1024w" />
+            <source media="(min-width: 1025px)"
+					srcset="http://www.nhm.ac.uk/content/dam/nhmwww/visit/Exhibitions/WPY53/wpy53-hero-desktop.jpg" />
+			<img class="js--carousel-image" src="http://www.nhm.ac.uk/content/dam/nhmwww/visit/Exhibitions/WPY53/wpy53-hero-desktop.jpg" alt="Wildlife Photographer of the Year"/>
+		</picture>
+
+
+
+
+
+</div>
+
+
+
+	            	<div class="caption-outer-wrapper">
+	                    <div class="caption-inner-wrapper">
+			            	<div class="caption">
+
+			                		<h2>Wildlife Photographer of the Year</h2>
+
+			                	<p>
+
+					                See the world's best nature photography. Now open.<br>
+
+			        	        </p>
+			            	</div>
+		            	</div>
+	            	</div>
+
+
+            </a>
+        </li>
+
+
+		<!-- <p>http://www.nhm.ac.uk/content/dam/nhmwww/visit/Exhibitions/ice-rink/2017/nhm-ice-rink-2017-creative-hero-desktop.jpg</p>
+		<p>http://www.nhm.ac.uk/content/nhmwww/en/home/visit/exhibitions/ice-rink.html</p>
+		<p>Get your skates on and book your session today.</p>
+		static-->
+
+
+
+        	<li data-thumb="http://www.nhm.ac.uk/content/dam/nhmwww/visit/Exhibitions/ice-rink/2017/nhm-ice-rink-2017-creative-hero-desktop.jpg"  data-gtm="herosection-major-carousel-2">
+            <a href="/visit/exhibitions/ice-rink.html">
+
+	            <div class="adaptiveimage image carousel-image parbase image_2">
+
+
+
+
+<!-- WR-890: if user has selected "Add bottom margin" in CMS dialog box, wrap entire component with class "mb-20" (margin-bottom 20px) -->
+
+
+
+		<!-- WR-1020: replace Interchange with Picture -->
+		<picture>
+			<source media="(max-width: 480px)"
+					srcset="http://www.nhm.ac.uk/content/dam/nhmwww/visit/Exhibitions/ice-rink/2017/nhm-ice-rink-2017-creative-hero-desktop.jpg 768w" />
+            <source media="(min-width: 481px) and (max-width: 768px)"
+					srcset="http://www.nhm.ac.uk/content/nhmwww/en/home/visit/jcr:content/par/herosection/par2/nhm_carousel/image_2.img.1024.high.jpg/1506594120629.jpg 753w" />
+            <source media="(min-width: 769px) and (max-width: 1024px)"
+					srcset="http://www.nhm.ac.uk/content/nhmwww/en/home/visit/jcr:content/par/herosection/par2/nhm_carousel/image_2.img.1024.high.jpg/1506594120629.jpg 1024w" />
+            <source media="(min-width: 1025px)"
+					srcset="http://www.nhm.ac.uk/content/dam/nhmwww/visit/Exhibitions/ice-rink/2017/nhm-ice-rink-2017-creative-hero-desktop.jpg" />
+			<img class="js--carousel-image" src="http://www.nhm.ac.uk/content/dam/nhmwww/visit/Exhibitions/ice-rink/2017/nhm-ice-rink-2017-creative-hero-desktop.jpg" alt="Ice Rink now open"/>
+		</picture>
+
+
+
+
+
+</div>
+
+
+
+	            	<div class="caption-outer-wrapper">
+	                    <div class="caption-inner-wrapper">
+			            	<div class="caption">
+
+			                		<h2>Ice Rink now open</h2>
+
+			                	<p>
+
+					                Get your skates on and book your session today.
+			        	        </p>
+			            	</div>
+		            	</div>
+	            	</div>
+
+
+            </a>
+        </li>
+
+
+		<!-- <p>http://www.nhm.ac.uk/content/dam/nhmwww/visit/Exhibitions/Whales/whales-with-review-hero-desktop.jpg</p>
+		<p>http://www.nhm.ac.uk/content/nhmwww/en/home/visit/exhibitions/whales.html</p>
+		<p>Walk among ocean giants in this major exhibition. Book now.</p>
+		static-->
+
+
+
+        	<li data-thumb="http://www.nhm.ac.uk/content/dam/nhmwww/visit/Exhibitions/Whales/whales-with-review-hero-desktop.jpg"  data-gtm="herosection-major-carousel-3">
+            <a href="/visit/exhibitions/whales.html">
+
+	            <div class="adaptiveimage image carousel-image parbase image_3">
+
+
+
+
+<!-- WR-890: if user has selected "Add bottom margin" in CMS dialog box, wrap entire component with class "mb-20" (margin-bottom 20px) -->
+
+
+
+		<!-- WR-1020: replace Interchange with Picture -->
+		<picture>
+			<source media="(max-width: 480px)"
+					srcset="http://www.nhm.ac.uk/content/dam/nhmwww/visit/Exhibitions/Whales/whales-hero-2-mobile-image.jpg 768w" />
+            <source media="(min-width: 481px) and (max-width: 768px)"
+					srcset="http://www.nhm.ac.uk/content/nhmwww/en/home/visit/jcr:content/par/herosection/par2/nhm_carousel/image_3.img.1024.high.jpg/1505732469268.jpg 753w" />
+            <source media="(min-width: 769px) and (max-width: 1024px)"
+					srcset="http://www.nhm.ac.uk/content/nhmwww/en/home/visit/jcr:content/par/herosection/par2/nhm_carousel/image_3.img.1024.high.jpg/1505732469268.jpg 1024w" />
+            <source media="(min-width: 1025px)"
+					srcset="http://www.nhm.ac.uk/content/dam/nhmwww/visit/Exhibitions/Whales/whales-with-review-hero-desktop.jpg" />
+			<img class="js--carousel-image" src="http://www.nhm.ac.uk/content/dam/nhmwww/visit/Exhibitions/Whales/whales-with-review-hero-desktop.jpg" alt="Whales: Beneath the surface"/>
+		</picture>
+
+
+
+
+
+</div>
+
+
+
+	            	<div class="caption-outer-wrapper">
+	                    <div class="caption-inner-wrapper">
+			            	<div class="caption">
+
+			                		<h2>Whales: Beneath the surface</h2>
+
+			                	<p>
+
+					                Walk among ocean giants in this major exhibition. Book now.
+			        	        </p>
+			            	</div>
+		            	</div>
+	            	</div>
+
+
+            </a>
+        </li>
+
+
+		<!-- <p>http://www.nhm.ac.uk/content/dam/nhmwww/visit/Exhibitions/art-of-british-natural-history/magpie-illustration-keulemans-hero-desktop.jpg</p>
+		<p>http://www.nhm.ac.uk/content/nhmwww/en/home/events/art-of-british-natural-history.html</p>
+		<p>Admire beautiful illustrations of some of Britain's most iconic species.</p>
+		static-->
+
+
+
+        	<li data-thumb="http://www.nhm.ac.uk/content/dam/nhmwww/visit/Exhibitions/art-of-british-natural-history/magpie-illustration-keulemans-hero-desktop.jpg"  data-gtm="herosection-major-carousel-4">
+            <a href="/events/art-of-british-natural-history.html">
+
+	            <div class="adaptiveimage image carousel-image image_4 parbase">
+
+
+
+
+<!-- WR-890: if user has selected "Add bottom margin" in CMS dialog box, wrap entire component with class "mb-20" (margin-bottom 20px) -->
+
+
+
+		<!-- WR-1020: replace Interchange with Picture -->
+		<picture>
+			<source media="(max-width: 480px)"
+					srcset="http://www.nhm.ac.uk/content/dam/nhmwww/visit/Exhibitions/art-of-british-natural-history/magpie-illustration-keulemans-hero-mobile.jpg 768w" />
+            <source media="(min-width: 481px) and (max-width: 768px)"
+					srcset="http://www.nhm.ac.uk/content/nhmwww/en/home/visit/jcr:content/par/herosection/par2/nhm_carousel/image_4.img.1024.high.jpg/1499685824423.jpg 753w" />
+            <source media="(min-width: 769px) and (max-width: 1024px)"
+					srcset="http://www.nhm.ac.uk/content/nhmwww/en/home/visit/jcr:content/par/herosection/par2/nhm_carousel/image_4.img.1024.high.jpg/1499685824423.jpg 1024w" />
+            <source media="(min-width: 1025px)"
+					srcset="http://www.nhm.ac.uk/content/dam/nhmwww/visit/Exhibitions/art-of-british-natural-history/magpie-illustration-keulemans-hero-desktop.jpg" />
+			<img class="js--carousel-image" src="http://www.nhm.ac.uk/content/dam/nhmwww/visit/Exhibitions/art-of-british-natural-history/magpie-illustration-keulemans-hero-desktop.jpg" alt="The Art of British Natural History"/>
+		</picture>
+
+
+
+
+
+</div>
+
+
+
+	            	<div class="caption-outer-wrapper">
+	                    <div class="caption-inner-wrapper">
+			            	<div class="caption">
+
+			                		<h2>The Art of British Natural History</h2>
+
+			                	<p>
+
+					                Admire beautiful illustrations of some of Britain's most iconic species.
+			        	        </p>
+			            	</div>
+		            	</div>
+	            	</div>
+
+
+            </a>
+        </li>
+
+
+    </ul>
+</div>
+<!--  END OF CAROUSEL --></div>
+<div class="row3cells section">
+
+
+
+
+<div class="row" data-equalizer >
+	<div class="large-4 medium-4 columns large4-margin" data-equalizer-watch>
+		<div class="par parsys"><div class="parbase section eventsummary">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- START OF EVENT & INFO SUMMARY -->
+
+
+
+	<ul class="event-summary">
+    	<li class="times">
+				<i class="ico svg-ico" data-svg-src="http://www.nhm.ac.uk/etc/designs/nhmwww/img/svg-icons/icon_l_feature_clock.svg" data-svg-title="icon__sidebar_clock" data-alt="Clock" data-stroke-width="3" data-fallback="http://www.nhm.ac.uk/etc/designs/nhmwww/img/icons/icon_l_feature_clock-visit.png" data-base-color="#A1164E" data-hover-color="#A1164E" data-hover-state="no"></i>
+        	<p><p>Open every day 10.00-17.50</p>
+<p>Last entry to the Museum 17.30</p>
+<p>Closed 24-26 December</p>
+</p>
+		</li>
+	</ul>
+<!-- END OF EVENT & INFO SUMMARY --></div>
+
+</div>
+
+	</div>
+	<div class="large-4 medium-4 columns large4-margin" data-equalizer-watch>
+		<div class="par2 parsys"><div class="parbase section eventsummary">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- START OF EVENT & INFO SUMMARY -->
+
+
+
+	<ul class="event-summary">
+    	<li class="tickets">
+				<i class="ico svg-ico" data-svg-src="http://www.nhm.ac.uk/etc/designs/nhmwww/img/svg-icons/icon_l_feature_ticket.svg" data-svg-title="icon__sidebar_ticket" data-alt="Close" data-stroke-width="3" data-fallback="http://www.nhm.ac.uk/etc/designs/nhmwww/img/icons/icon_l_feature_ticket-visit.png" data-base-color="#A1164E" data-hover-color="#A1164E" data-hover-state="no"></i>
+        	<p><p>Admission is free. There is a charge for some temporary exhibitions.</p>
+</p>
+		</li>
+	</ul>
+<!-- END OF EVENT & INFO SUMMARY --></div>
+
+</div>
+
+	</div>
+	<div class="large-4 medium-4 columns large4-margin" data-equalizer-watch>
+		<div class="par3 parsys"><div class="parbase section eventsummary">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- START OF EVENT & INFO SUMMARY -->
+
+
+
+	<ul class="event-summary">
+    	<li class="branding">
+				<i class="ico svg-ico" data-svg-src="http://www.nhm.ac.uk/etc/designs/nhmwww/img/svg-icons/icon_l_branding_n.svg" data-svg-title="icon__sidebar_branding" data-alt="Branding" data-stroke-width="2" data-fallback="http://www.nhm.ac.uk/etc/designs/nhmwww/img/icons/icon_l_branding_n-visit.png" data-base-color="#A1164E" data-hover-color="#A1164E" data-hover-state="no"></i>
+        	<p><p>The Natural History Museum<br>
+Cromwell Road <br>
+London SW7 5BD</p>
+</p>
+		</li>
+	</ul>
+<!-- END OF EVENT & INFO SUMMARY --></div>
+
+</div>
+
+	</div>
+</div></div>
+
+</div>
+
+</div>
+</div>
+<div class="row2cells21 section">
+
+
+
+<div class="row" data-equalizer
+     >
+    <div class="large-8 medium-8 columns" data-equalizer-watch>
+        <div class="par parsys"><div class="parbase section headertextimage">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="hti-wrapper " 	 data-equalizer-watch
+>
+
+
+
+			<div class="hti--image-wrapper columns small-12 medium-push-6 large-push-6
+						 medium-6 large-6 "
+							 data-equalizer-watch >
+
+					<a href="http://www.nhm.ac.uk/visit/whats-on/day.html">
+
+					<img alt='A child with a miscroscope' data-interchange="
+						[http://www.nhm.ac.uk/content/nhmwww/en/home/visit/jcr:content/par/row2cells21_1/par/headertextimage.img.320.medium.jpg/1482157839017.jpg, (default)],
+						[http://www.nhm.ac.uk/content/nhmwww/en/home/visit/jcr:content/par/row2cells21_1/par/headertextimage.img.320.low.jpg/1482157839017.jpg, (small)],
+						[http://www.nhm.ac.uk/content/nhmwww/en/home/visit/jcr:content/par/row2cells21_1/par/headertextimage.img.620.high.jpg/1482157839017.jpg, (retina)],
+						[http://www.nhm.ac.uk/content/nhmwww/en/home/visit/jcr:content/par/row2cells21_1/par/headertextimage.img.480.medium.jpg/1482157839017.jpg, (medium)],
+						[http://www.nhm.ac.uk/content/nhmwww/en/home/visit/jcr:content/par/row2cells21_1/par/headertextimage.img.full.high.jpg/1482157839017.jpg, (large)]">
+
+					<noscript>
+						<img src='http://www.nhm.ac.uk/content/nhmwww/en/home/visit/_jcr_content/par/row2cells21_1/par/headertextimage.img.320.low.jpg/1482157839017.jpg' alt='A child with a miscroscope'>
+					</noscript>
+
+					</a>
+
+			</div>
+
+
+
+
+		<div class="hti-box end columns hti-box__light-grey small-12
+					 medium-pull-6 large-pull-6
+						 medium-6 large-6
+					"  data-equalizer-watch >
+
+			<div class="small-12 medium-12 large-12 columns hti-box--text-wrapper" >
+				<h3>
+
+						<a href="http://www.nhm.ac.uk/visit/whats-on/day.html">
+
+
+						What's on
+
+
+						</a>
+
+				</h3>
+				<p>Find out what's on with our calendar of activities, special events and temporary exhibitions.</p>
+
+
+
+			</div>
+
+
+
+		</div>
+
+</div>
+</div>
+
+</div>
+
+    </div>
+    <div class="large-4 medium-4 columns" data-equalizer-watch>
+        <div class="par2 parsys"><div class="parbase section headertextimage">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="hti-wrapper " 	 data-equalizer-watch
+>
+
+
+
+
+
+
+		<div class="hti-box end columns hti-box__light-grey small-12  medium-12 large-12
+					"  data-equalizer-watch >
+
+			<div class="small-12 medium-12 large-12 columns hti-box--text-wrapper" >
+				<h3>
+
+						<a href="/visit/getting-here.html">
+
+
+						Getting here
+
+
+						</a>
+
+				</h3>
+				<p>Plan your journey to the Museum.</p>
+
+
+
+			</div>
+
+
+
+		</div>
+
+</div>
+</div>
+
+</div>
+
+    </div>
+</div>
+
+
+</div>
+<div class="section rowfullwidth">
+
+
+
+<div class="row " data-equalizer >
+	<div class="large-12 columns">
+		<div class="par2 parsys"><div class="parbase section headertextimage">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="hti-wrapper " 	 data-equalizer-watch
+>
+
+
+
+			<div class="hti--image-wrapper columns small-12 medium-push-4 large-push-4
+						 medium-8 large-8 "
+							 data-equalizer-watch >
+
+					<a href="/visit/exhibitions.html">
+
+					<img alt='Inside the Whales exhibition' data-interchange="
+						[http://www.nhm.ac.uk/content/nhmwww/en/home/visit/jcr:content/par/rowfullwidth_1126139777/par2/headertextimage_42049941.img.320.medium.jpg/1501069408372.jpg, (default)],
+						[http://www.nhm.ac.uk/content/nhmwww/en/home/visit/jcr:content/par/rowfullwidth_1126139777/par2/headertextimage_42049941.img.320.low.jpg/1501069408372.jpg, (small)],
+						[http://www.nhm.ac.uk/content/nhmwww/en/home/visit/jcr:content/par/rowfullwidth_1126139777/par2/headertextimage_42049941.img.620.high.jpg/1501069408372.jpg, (retina)],
+						[http://www.nhm.ac.uk/content/nhmwww/en/home/visit/jcr:content/par/rowfullwidth_1126139777/par2/headertextimage_42049941.img.480.medium.jpg/1501069408372.jpg, (medium)],
+						[http://www.nhm.ac.uk/content/nhmwww/en/home/visit/jcr:content/par/rowfullwidth_1126139777/par2/headertextimage_42049941.img.full.high.jpg/1501069408372.jpg, (large)]">
+
+					<noscript>
+						<img src='http://www.nhm.ac.uk/content/nhmwww/en/home/visit/_jcr_content/par/rowfullwidth_1126139777/par2/headertextimage_42049941.img.320.low.jpg/1501069408372.jpg' alt='Inside the Whales exhibition'>
+					</noscript>
+
+					</a>
+
+			</div>
+
+
+
+
+		<div class="hti-box end columns hti-box__light-grey small-12
+					 medium-pull-8 large-pull-8
+						 medium-4 large-4
+					"  data-equalizer-watch >
+
+			<div class="small-12 medium-12 large-12 columns hti-box--text-wrapper" >
+				<h3>
+
+						<a href="/visit/exhibitions.html">
+
+
+						Exhibitions and attractions
+
+
+						</a>
+
+				</h3>
+				<p>Explore new exhibitions, find out about evening events and book tickets online.</p>
+
+
+
+			</div>
+
+
+
+		</div>
+
+</div>
+</div>
+
+</div>
+
+	</div>
+</div></div>
+<div class="row2cells21 section">
+
+
+
+<div class="row" data-equalizer
+     >
+    <div class="large-8 medium-8 columns" data-equalizer-watch>
+        <div class="par parsys"><div class="parbase section headertextimage">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="hti-wrapper " 	 data-equalizer-watch
+>
+
+
+
+			<div class="hti--image-wrapper columns small-12 medium-push-6 large-push-6
+						 medium-6 large-6 "
+							 data-equalizer-watch >
+
+					<a href="/visit/galleries-and-museum-map.html">
+
+					<img alt='A young girl in a gallery' data-interchange="
+						[http://www.nhm.ac.uk/content/nhmwww/en/home/visit/jcr:content/par/row2cells21/par/headertextimage.img.320.medium.jpg/1490013978571.jpg, (default)],
+						[http://www.nhm.ac.uk/content/nhmwww/en/home/visit/jcr:content/par/row2cells21/par/headertextimage.img.320.low.jpg/1490013978571.jpg, (small)],
+						[http://www.nhm.ac.uk/content/nhmwww/en/home/visit/jcr:content/par/row2cells21/par/headertextimage.img.620.high.jpg/1490013978571.jpg, (retina)],
+						[http://www.nhm.ac.uk/content/nhmwww/en/home/visit/jcr:content/par/row2cells21/par/headertextimage.img.480.medium.jpg/1490013978571.jpg, (medium)],
+						[http://www.nhm.ac.uk/content/nhmwww/en/home/visit/jcr:content/par/row2cells21/par/headertextimage.img.full.high.jpg/1490013978571.jpg, (large)]">
+
+					<noscript>
+						<img src='http://www.nhm.ac.uk/content/nhmwww/en/home/visit/_jcr_content/par/row2cells21/par/headertextimage.img.320.low.jpg/1490013978571.jpg' alt='A young girl in a gallery'>
+					</noscript>
+
+					</a>
+
+			</div>
+
+
+
+
+		<div class="hti-box end columns hti-box__light-grey small-12
+					 medium-pull-6 large-pull-6
+						 medium-6 large-6
+					"  data-equalizer-watch >
+
+			<div class="small-12 medium-12 large-12 columns hti-box--text-wrapper" >
+				<h3>
+
+						<a href="/visit/galleries-and-museum-map.html">
+
+
+						Galleries and maps
+
+
+						</a>
+
+				</h3>
+				<p>Discover what you can see and do in our 36 free galleries. Get around with the Museum map. <br />
+</p>
+
+
+
+			</div>
+
+
+
+		</div>
+
+</div>
+</div>
+
+</div>
+
+    </div>
+    <div class="large-4 medium-4 columns" data-equalizer-watch>
+        <div class="par2 parsys"><div class="parbase section headertextimage">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="hti-wrapper " 	 data-equalizer-watch
+>
+
+
+
+
+
+
+		<div class="hti-box end columns hti-box__light-grey small-12  medium-12 large-12
+					"  data-equalizer-watch >
+
+			<div class="small-12 medium-12 large-12 columns hti-box--text-wrapper" >
+				<h3>
+
+						<a href="/visit/eat-drink-and-shop.html">
+
+
+						Eat, drink and shop
+
+
+						</a>
+
+				</h3>
+				<p>Visit our restaurant and cafés to enjoy fresh food and drinks, or find a gift in our Museum shops.</p>
+
+
+
+			</div>
+
+
+
+		</div>
+
+</div>
+</div>
+
+</div>
+
+    </div>
+</div>
+
+
+</div>
+<div class="row2cells21 section">
+
+
+
+<div class="row" data-equalizer
+     >
+    <div class="large-8 medium-8 columns" data-equalizer-watch>
+        <div class="par parsys"><div class="parbase section headertextimage">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="hti-wrapper " 	 data-equalizer-watch
+>
+
+
+
+			<div class="hti--image-wrapper columns small-12 medium-push-6 large-push-6
+						 medium-6 large-6 "
+							 data-equalizer-watch >
+
+					<img alt='visitor-app-3-hti-single' data-interchange="
+						[http://www.nhm.ac.uk/content/nhmwww/en/home/visit/jcr:content/par/row2cells21_654246010/par/headertextimage.img.320.medium.jpg/1502094454765.jpg, (default)],
+						[http://www.nhm.ac.uk/content/nhmwww/en/home/visit/jcr:content/par/row2cells21_654246010/par/headertextimage.img.320.low.jpg/1502094454765.jpg, (small)],
+						[http://www.nhm.ac.uk/content/nhmwww/en/home/visit/jcr:content/par/row2cells21_654246010/par/headertextimage.img.620.high.jpg/1502094454765.jpg, (retina)],
+						[http://www.nhm.ac.uk/content/nhmwww/en/home/visit/jcr:content/par/row2cells21_654246010/par/headertextimage.img.480.medium.jpg/1502094454765.jpg, (medium)],
+						[http://www.nhm.ac.uk/content/nhmwww/en/home/visit/jcr:content/par/row2cells21_654246010/par/headertextimage.img.full.high.jpg/1502094454765.jpg, (large)]">
+
+					<noscript>
+						<img src='http://www.nhm.ac.uk/content/nhmwww/en/home/visit/_jcr_content/par/row2cells21_654246010/par/headertextimage.img.320.low.jpg/1502094454765.jpg' alt='visitor-app-3-hti-single'>
+					</noscript>
+
+			</div>
+
+
+
+
+		<div class="hti-box end columns hti-box__light-grey small-12
+					 medium-pull-6 large-pull-6
+						 medium-6 large-6
+					"  data-equalizer-watch >
+
+			<div class="small-12 medium-12 large-12 columns hti-box--text-wrapper" >
+				<h3>
+
+						<a href="/visit/visitor-app.html">
+
+
+						The visitor app
+
+
+						</a>
+
+				</h3>
+				<p>Download our free visitor app to find details of our most interesting specimens and discover our temporary exhibitions.</p>
+
+
+
+			</div>
+
+
+
+		</div>
+
+</div>
+</div>
+
+</div>
+
+    </div>
+    <div class="large-4 medium-4 columns" data-equalizer-watch>
+        <div class="par2 parsys"><div class="parbase section headertextimage">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="hti-wrapper " 	 data-equalizer-watch
+>
+
+
+
+
+
+
+		<div class="hti-box end columns hti-box__light-grey small-12  medium-12 large-12
+					"  data-equalizer-watch >
+
+			<div class="small-12 medium-12 large-12 columns hti-box--text-wrapper" >
+				<h3>
+
+						<a href="/visit/facilities-and-access.html">
+
+
+						Facilities and access
+
+
+						</a>
+
+				</h3>
+				<p>Find information about facilities for disabled visitors.</p>
+
+<p>Make sure your visit runs smoothly with our guide to cloakrooms, toilets, lifts and parking.</p>
+
+
+
+			</div>
+
+
+
+		</div>
+
+</div>
+</div>
+
+</div>
+
+    </div>
+</div>
+
+
+</div>
+<div class="row2cells21 section">
+
+
+
+<div class="row" data-equalizer
+     >
+    <div class="large-8 medium-8 columns" data-equalizer-watch>
+        <div class="par parsys"><div class="parbase section headertextimage">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="hti-wrapper " 	 data-equalizer-watch
+>
+
+
+
+			<div class="hti--image-wrapper columns small-12 medium-push-6 large-push-6
+						 medium-6 large-6 "
+							 data-equalizer-watch >
+
+					<a href="http://www.nhm.ac.uk/tring/index.html">
+
+					<img alt='Mammals on display at the Museum at Tring in Hertfordshire.' data-interchange="
+						[http://www.nhm.ac.uk/content/nhmwww/en/home/visit/jcr:content/par/row2cells21_2/par/headertextimage.img.320.medium.jpg/1490013916346.jpg, (default)],
+						[http://www.nhm.ac.uk/content/nhmwww/en/home/visit/jcr:content/par/row2cells21_2/par/headertextimage.img.320.low.jpg/1490013916346.jpg, (small)],
+						[http://www.nhm.ac.uk/content/nhmwww/en/home/visit/jcr:content/par/row2cells21_2/par/headertextimage.img.620.high.jpg/1490013916346.jpg, (retina)],
+						[http://www.nhm.ac.uk/content/nhmwww/en/home/visit/jcr:content/par/row2cells21_2/par/headertextimage.img.480.medium.jpg/1490013916346.jpg, (medium)],
+						[http://www.nhm.ac.uk/content/nhmwww/en/home/visit/jcr:content/par/row2cells21_2/par/headertextimage.img.full.high.jpg/1490013916346.jpg, (large)]">
+
+					<noscript>
+						<img src='http://www.nhm.ac.uk/content/nhmwww/en/home/visit/_jcr_content/par/row2cells21_2/par/headertextimage.img.320.low.jpg/1490013916346.jpg' alt='Mammals on display at the Museum at Tring in Hertfordshire.'>
+					</noscript>
+
+					</a>
+
+			</div>
+
+
+
+
+		<div class="hti-box end columns hti-box__light-grey small-12
+					 medium-pull-6 large-pull-6
+						 medium-6 large-6
+					"  data-equalizer-watch >
+
+			<div class="small-12 medium-12 large-12 columns hti-box--text-wrapper" >
+				<h3>
+
+						<a href="http://www.nhm.ac.uk/tring/index.html">
+
+
+						The Museum at Tring
+
+
+						</a>
+
+				</h3>
+				<p>Discover our world-class collection of animals and birds at the Natural History Museum at Tring.</p>
+
+
+
+			</div>
+
+
+
+		</div>
+
+</div>
+</div>
+
+</div>
+
+    </div>
+    <div class="large-4 medium-4 columns" data-equalizer-watch>
+        <div class="par2 parsys"><div class="twitter parbase section">
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="http://www.nhm.ac.uk/etc/clientlibs/nhmwww/foundationreflow.js"></script>
+
+
+<a class="twitter-timeline" data-dnt="true" height="300" data-widget-id="532202770846060545"></a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></div>
+
+</div>
+
+    </div>
+</div>
+
+
+</div>
+<div class="section rowfullwidth">
+
+
+
+<div class="row bottom-banner" data-equalizer >
+	<div class="large-12 columns">
+		<div class="par2 parsys"><div class="parbase section ctabutton">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="http://www.nhm.ac.uk/etc/clientlibs/nhmwww/ctabutton.css" type="text/css">
+
+
+
+
+
+
+           <div class="large-8 medium-6 columns large-left-section"><!-- text-->
+
+	                  <h2><p>Become a Member and enjoy free exhibition tickets, discounts and more</p>
+</h2>
+
+	            </div><!-- end text-->
+	           <div class="large-4 medium-6 columns"> <!-- start button-->
+	               <div class="info-tout info-tout__action tickets membership">
+						<a class="arrow--large burgandy" href="/support-us/membership.html" data-gtm="CTA">
+							<i class="ico svg-ico" data-svg-src="http://www.nhm.ac.uk/etc/designs/nhmwww/img/svg-icons/icon_l_feature_membership.svg" data-svg-title="icon__sidebar_membership" data-alt="Membership Card" data-stroke-width="2" data-fallback="http://www.nhm.ac.uk/etc/designs/nhmwww/img/icons/icon_l_feature_membership-visit.png" data-base-color="#A1164E" data-hover-color="#A1164E" data-hover-state="no"></i>
+								<h3 class="paddingTB">Join today</h3>
+							<i class="ico svg-ico arrowl" data-svg-src="http://www.nhm.ac.uk/etc/designs/nhmwww/img/svg-icons/icon_l_general_arrow_r.svg" data-svg-title="icon__arrow" data-alt="membership" data-stroke-width="4" data-base-color="#A1164E"></i>
+						</a>
+					</div><!-- End button-->
+           		</div>
+
+
+
+
+
+</div>
+
+</div>
+
+	</div>
+</div></div>
+
+</div>
+
+	</div>
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+<div class="footer newslettersignup">
+
+
+
+
+
+
+
+
+
+
+
+<!-- START OF FOOTER -->
+<footer class="main-footer">
+  <div class="row">
+      <!-- Address section -->
+    <div class="small-12 medium-6 large-3 columns main-footer--address-section__wrapper">
+      <img src="http://www.nhm.ac.uk/etc/designs/nhmwww/img/nhm-logo-white.png" alt="" class="main-footer--logo">
+      <p class="main-footer--address-section__nhm">
+        <ul>
+        <li><a href="http://www.nhm.ac.uk/" class="main-footer--link">The Natural History Museum</a> </li>
+        <li>Cromwell Road </li>
+        <li>London SW7 5BD</li>
+        <li><a href="https://www.google.co.uk/maps/place/Natural+History+Museum/@51.4967183,-0.1785559,17z/data=!3m2!4b1!5s0x4876055d2a62ace7:0xf1f051390954c55!4m5!3m4!1s0x48760542e6182f3f:0x7bb7e385c39764c4!8m2!3d51.496715!4d-0.1763672?hl=en" target="_blank" class="main-footer--link">Map</a></li>
+        </ul>
+        <ul>
+        <li>Open daily 10.00-17.50</li>
+        <li>Last entry 17.30</li>
+        <li>Closed 24-26 December</li>
+        </ul>
+      </p>
+      <p class="main-footer--address-section__tring">
+        <ul>
+        <li><a href="http://www.nhm.ac.uk/visit/tring.html" class="main-footer--link">The Natural History<br>Museum at Tring</a> </li>
+        <li>Akeman Street</li>
+        <li>Tring </li>
+        <li>Hertfordshire HP23 6AP</li>
+        <li><a href="https://www.google.co.uk/maps/place/Natural+History+Museum+at+Tring/@51.7907453,-0.6634277,17z/data=!3m1!4b1!4m5!3m4!1s0x48765bdea86d0a7d:0x169a990130daab9a!8m2!3d51.790742!4d-0.661239?hl=en" target="_blank" class="main-footer--link">Map</a></li>
+        </ul>
+        <ul>
+        <li>Open Monday - Saturday </li>
+        <li>10.00-17.00</li>
+        <li>Sunday 14.00-17.00</li>
+        <li>Closed 24-26 December</li>
+        </ul>
+      </p>
+    </div>
+
+      <!-- Links section -->
+    <div class="small-12 medium-6 large-3 columns main-footer--links-section__wrapper main-footer--links-section__first">
+      <div class="main-footer--section">
+        <h4><a href="http://www.nhm.ac.uk/visit.html" class="main-footer--link">Visit</a></h4>
+        <p><a href="http://www.nhm.ac.uk/visit/whats-on.html" class="main-footer--link">What's on</a></p>
+        <p><a href="http://www.nhm.ac.uk/visit/exhibitions.html" class="main-footer--link">Exhibitions and attractions</a></p>
+        <p><a href="http://www.nhm.ac.uk/visit/galleries-and-museum-map.html" class="main-footer--link">Galleries and Museum map</a></p>
+        <p><a href="http://www.nhm.ac.uk/visit/facilities-and-access.html" class="main-footer--link">Access</a></p>
+        <p><a href="http://www.nhm.ac.uk/visit/visitor-app.html" class="main-footer--link">Download our free visitor app</a></p>
+      </div>
+      <div class="main-footer--section">
+        <h4><a href="http://www.nhm.ac.uk/schools.html" class="main-footer--link">For schools</a></h4>
+        <p><a href="http://www.nhm.ac.uk/schools/things-to-do-schools.html" class="main-footer--link">Things to do</a></p>
+        <p><a href="http://www.nhm.ac.uk/schools/essential-information-schools.html" class="main-footer--link">Essential visiting information</a></p>
+        <p><a href="http://www.nhm.ac.uk/schools/teaching-resources.html" class="main-footer--link">Teaching resources</a></p>
+
+        <h4 class="main-footer--section__pull-bottom"><a href="https://www.nhmshop.co.uk/" class="main-footer--link" target="_blank">Online shop</a></h4>
+      </div>
+      <div class="main-footer--section">
+        <h4><a href="http://www.nhm.ac.uk/about-us.html" class="main-footer--link">About us</a></h4>
+        <p><a href="http://www.nhm.ac.uk/about-us/news.html" class="main-footer--link">News</a></p>
+        <p><a href="http://www.nhm.ac.uk/press-office.html" class="main-footer--link">Press office</a></p>
+        <p><a href="http://www.nhm.ac.uk/about-us/governance.html" class="main-footer--link">Governance</a></p>
+        <p><a href="http://www.nhm.ac.uk/contact-us.html" class="main-footer--link">Contact us</a></p>
+      </div>
+    </div>
+
+    <div class="small-12 medium-6 large-3 columns main-footer--links-section__wrapper main-footer--links-section__second">
+      <div class="main-footer--section">
+        <h4><a href="http://www.nhm.ac.uk/support-us.html" class="main-footer--link">Join and support</a></h4>
+        <p><a href="http://www.nhm.ac.uk/support-us/membership.html" class="main-footer--link">Membership</a></p>
+        <p><a href="http://www.nhm.ac.uk/support-us/membership/gift-membership.html" class="main-footer--link">Gift membership</a></p>
+        <p><a href="http://www.nhm.ac.uk/support-us/give.html" class="main-footer--link">Make a donation</a></p>
+        <p><a href="http://www.nhm.ac.uk/support-us/patronage.html" class="main-footer--link">Become a Patron</a></p>
+        <p><a href="http://www.nhm.ac.uk/support-us/corporate-partnerships.html" class="main-footer--link">Corporate partnerships</a></p>
+      </div>
+      <div class="main-footer--section">
+        <h4><a href="http://www.nhm.ac.uk/take-part.html" class="main-footer--link">Take part</a></h4>
+        <p><a href="http://www.nhm.ac.uk/take-part/volunteer.html" class="main-footer--link">Volunteer</a></p>
+        <p><a href="http://www.nhm.ac.uk/take-part/citizen-science.html" class="main-footer--link">Citizen science</a></p>
+        <p><a href="http://www.nhm.ac.uk/take-part/identify-nature.html" class="main-footer--link">Identify UK nature</a></p>
+        <p><a href="http://www.nhm.ac.uk/take-part/centre-for-uk-biodiversity.html" class="main-footer--link">Centre for UK Biodiversity</a></p>
+        <p><a href="http://www.nhm.ac.uk/visit/wpy/competition.html" class="main-footer--link">Wildlife Photographer<br>of the Year competition</a></p>
+      </div>
+      <div class="main-footer--section">
+        <h4><a href="http://www.nhm.ac.uk/about-us/careers.html" class="main-footer--link">Careers</a></h4>
+        <p><a href="https://careers.nhm.ac.uk/templates/CIPHR/job_list.aspx" class="main-footer--link" target="_blank">Current vacancies</a></p>
+      </div>
+    </div>
+    <div class="small-12 medium-6 large-3 columns main-footer--links-section__wrapper main-footer--links-section__third">
+      <div class="main-footer--section">
+        <h4><a href="http://www.nhm.ac.uk/our-science.html" class="main-footer--link">Our science</a></h4>
+        <p><a href="http://www.nhm.ac.uk/our-science/our-work.html" class="main-footer--link">Our work</a></p>
+        <p><a href="http://www.nhm.ac.uk/our-science/data.html" class="main-footer--link">Data</a></p>
+        <p><a href="http://www.nhm.ac.uk/our-science/collections.html" class="main-footer--link">Collections</a></p>
+        <p><a href="http://www.nhm.ac.uk/our-science/departments-and-staff.html" class="main-footer--link">Departments and staff</a></p>
+        <p><a href="http://www.nhm.ac.uk/our-science/science-events.html" class="main-footer--link">Events and seminars</a></p>
+        <p><a href="http://www.nhm.ac.uk/our-science/courses-and-students.html" class="main-footer--link">Courses and training</a></p>
+        <p><a href="http://www.nhm.ac.uk/our-science/departments-and-staff/library-and-archives.html" class="main-footer--link">Library and Archives</a></p>
+      </div>
+      <div class="main-footer--section">
+        <h4><a href="http://www.nhm.ac.uk/business-services.html" class="main-footer--link">Business services</a></h4>
+        <p><a href="http://www.nhm.ac.uk/business-services/touring-exhibitions.html" class="main-footer--link">Touring exhibitions</a></p>
+        <p><a href="http://www.nhm.ac.uk/business-services/consulting.html" class="main-footer--link">Consulting</a></p>
+        <p><a href="http://www.nhm.ac.uk/business-services/publishing.html" class="main-footer--link">Publishing</a></p>
+        <p><a href="http://www.nhm.ac.uk/business-services/filming.html" class="main-footer--link">Film locations</a></p>
+        <p><a href="http://www.nhmimages.com/" class="main-footer--link" target="_blank">NHM Images</a></p>
+        <p><a href="http://www.nhm.ac.uk/business-services/venue-hire.html" class="main-footer--link">Venue hire</a></p>
+      </div>
+      <div class="main-footer--section">
+        <h4>&nbsp;</h4>
+        <p><a href="http://www.nhm.ac.uk/about-us/privacy-notice.html">Privacy notice</a></p>
+        <p><a href="http://www.nhm.ac.uk/about-us/website-terms-conditions.html">Terms and conditions</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 medium-12 large-12 columns main-footer--copyright">
+      <span class="copyright--span">&copy; The Trustees of The Natural History Museum, London</span>
+    </div>
+  </div>
+
+ </footer>
+<!-- END OF FOOTER -->
+
+<div id="cookie-bar" data-module="cookie-bar">
+	<div class="small-12 medium-9 large-10 columns text-center">
+		<p>
+			We use cookies to optimise your experience when using this site. View our <a href="http://www.nhm.ac.uk/about-us/cookies.html">Cookie Policy</a> to find out more.
+		</p>
+	</div>
+	<div class="small-12 medium-3 large-2 columns text-right">
+	<a class="js--cookie-close" title="Accept cookies">
+			I accept
+	</a>
+	<i class="js--cookie-close ico svg-ico" data-svg-src="http://www.nhm.ac.uk/etc/designs/nhmwww/img/svg-icons/icon_l_general_close.svg" data-svg-title="icon_general_close" data-stroke-width="8" data-base-color="#FFFFFF"></i>
+	</div>
+</div></div>
+
+<script src="http://www.nhm.ac.uk/etc/designs/nhmwww/js/twitter.js"></script>
+
+
+
+
+</body>
+</html>
