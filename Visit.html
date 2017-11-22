@@ -111,7 +111,7 @@
   	["hi","hey","hello"],
     ["membership", "how do i become a member", "where can i sign up to be a member"],
   	["how are you", "how is life", "how are things"],
-  	["what is hinze hall", "tell me about hinze hall", "what does the main hall have", "hinze hall"],
+  	["what is hintze hall", "tell me about hintze hall", "what does the main hall have", "hintze hall"],
   	["what are you doing", "what is going on"],
   	["how old are you"],
   	["who are you", "are you human", "are you bot", "are you human or bot"],
@@ -155,9 +155,12 @@
   document.querySelector("#input").addEventListener("keypress", function(e){
   	var key = e.which || e.keyCode; //determines if enter key was pressed
   	if(key === 13){ //Enter button
-  		var input = document.getElementById("input").value;
+      e.preventDefault();
+  		var input = document.getElementById("input").value.trim();
   		document.getElementById("You").innerHTML = input;
   		output(input);
+      document.getElementById("input").value = ""; //clear input value
+
   	}
   });
   function output(input){
@@ -174,7 +177,7 @@
   	}
   	document.getElementById("NHM").innerHTML = product;
   	// speak(product);
-  	document.getElementById("input").value = ""; //clear input value
+
   }
   function compare(arr, array, string){
   	var item;
