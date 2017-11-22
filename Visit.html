@@ -75,7 +75,7 @@
   	color: #000000;
   }
   #main {
-  	position: fixed; top: 90px; right: 228px; width: 180px;
+  	position: fixed; top: 90px; right: 228px; width: 152px;
   	border: 0px solid #421;
   	font-family: arial;
     z-index: 100;
@@ -102,6 +102,7 @@
 
   var trigger = [
   	["hi","hey","hello"],
+    ["membership", "how do i become a member", "where can i sign up to be a member"],
   	["how are you", "how is life", "how are things"],
   	["what is hinze hall", "tell me about hinze hall", "what does the main hall have", "hinze hall"],
   	["what are you doing", "what is going on"],
@@ -119,15 +120,17 @@
   	["where is Dippy", "where is the dinosaur from the main hall", "dippy"],
   	["bye", "good bye", "goodbye", "see you later"],
   	["how do i get to the museum", "directions to museum", "directions", "transport to the museum", "transport"],
+    ["why"]
   ];
   var reply = [
   	["Hi","Hey","Hello"],
+    ["if you scroll down to the bottom of this page, you should see it under the 'join and support' heading"],
   	["Fine", "Pretty well", "Fantastic"],
   	["It has mammals, fish, birds, minerals, plants and insects, and stories about people whose work has shaped the Museum.", "it's the main hall"],
   	["Nothing much", "About to go to sleep", "Can you guess?", "I don't know actually"],
   	["I am 1 day old"],
   	["I am just a bot, a dinosaur bot!", "I am a Dino-bot. What are you?"],
-  	["Jade", "My God"],
+  	["Jade", "God"],
   	["I am nameless", "I don't have a name"],
   	["I love you too", "Me too"],
   	["Have you ever felt bad?", "Glad to hear it"],
@@ -138,9 +141,10 @@
   	["Normally about 10 mins, however on weekends and school holidays, it can be 30 mins"],
   	["Dippy has gone on tour"],
   	["Bye", "Goodbye", "See you later"],
-  	["The nearest tube is South Kensington (on the Piccadilly, District and Circle lines)"]
+  	["The nearest tube is South Kensington (on the Piccadilly, District and Circle lines)"],
+    ["Because I just don't know, sorry!"]
   ];
-  var alternative = ["Haha...", "Eh...", "I don't know", "I don't have any info on that", "I'm confused!", "Please look at NHM website for that", "I can't answer that, I need help!"];
+  var alternative = ["Haha...", "Eh...", "I don't know", "I don't have any info on that", "I'm confused!", "Please look at NHM website for that", "I can't answer that, I need help!", "Why don't you get the NHM app, it knows way more than me!"];
   document.querySelector("#input").addEventListener("keypress", function(e){
   	var key = e.which || e.keyCode; //determines if enter key was pressed
   	if(key === 13){ //Enter button
