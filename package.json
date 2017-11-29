@@ -2,7 +2,7 @@
   "name": "nhm_chatbot_integration",
   "version": "1.0.0",
   "description": "Little Dino sits on the right hand side of your HTML page and stays there as you scroll away. You can have a little chat about life as you browse. You can make him as clever or as dumb as you like. (For ultimate stimulating conversation, you'd need to hook him up to an ai.API because he doesnt talk about much at the moment!)",
-  "main": "main.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
