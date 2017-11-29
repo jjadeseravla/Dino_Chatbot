@@ -2,7 +2,7 @@
 
 Little Dino sits on the right hand side of your HTML page and stays there as you scroll away. You can have a little chat about life as you browse.
 You can make him as clever or as dumb as you like.
-(For ultimate stimulating conversation, you'd need to hook him up to an ai.API because he doesnt talk about much at the moment!)
+(For ultimate stimulating conversation, you'd need to hook him up to an ai.API because he does not talk about much at the moment!)
 
 ![dino](https://user-images.githubusercontent.com/25978953/33080421-f4bba798-cecf-11e7-8a1f-80f8096bb259.jpg)
 
