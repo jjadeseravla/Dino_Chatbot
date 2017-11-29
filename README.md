@@ -15,3 +15,4 @@ Hopefully Dino will have a bright future, unlike actual dinosaurs!
 - He should be able to disappear or appear when summoned.
 - He could be animated, so when he replies his mouth could move.
 - He needs to learn to have better conversations, and therefore needs to be hooked up to an API as I mentioned earlier.
+- User input and answers need to be recorded on a database.
