@@ -1,8 +1,9 @@
+
+<form method='POST' action='/users/add'>
+  <label>Person</label><br>
+  <input type="text" name="users">
+  <input type="submit" value="Submit">
+</form>
 <% users.forEach(function(user){ %>
   <li><%=user.email %></li>
 <% }) %>
-
-<!-- <form method='POST' action='/users/add'>
-  <label>Person</label><br>
-  <input type="text" name="users">
-  <input type="submit" value="Submit"> -->

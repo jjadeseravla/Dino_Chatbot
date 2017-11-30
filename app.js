@@ -36,7 +36,7 @@ app.get('/', function(req, res){
 });
 
 app.post('/users/add', function(req, res){
-  console.log(req.body.users);
+  console.log('work for me');
 })
 
 app.listen(7000, function(){
