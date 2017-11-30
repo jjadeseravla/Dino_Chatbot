@@ -11,6 +11,10 @@ var app = express();
 //
 // app.use(logger);
 
+//View Engine
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
 //Body Parser Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -18,23 +22,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 //Set Static path
 app.use(express.static(path.join(__dirname, 'public')));
 
-var people = [
-    {
-    name: 'Jeff',
-    age: 30
-  },
-  {
-    name: 'Sarah',
-    age: 33
-  },
-  {
-    name: 'Sue',
-    age: 31
-  },
-]
-
 app.get('/', function(req, res){
-  res.json(people);
+  res.render('index');
 });
 
 app.listen(7000, function(){
