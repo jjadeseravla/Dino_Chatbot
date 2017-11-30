@@ -1,2 +1,2 @@
-var hello = require('./server');
-hello.world();
+// var hello = require('./server');
+// hello.world();

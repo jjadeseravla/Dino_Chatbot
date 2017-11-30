@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/jjadeseravla/Dino_Chatbot/issues"
   },
-  "homepage": "https://github.com/jjadeseravla/Dino_Chatbot#readme"
+  "homepage": "https://github.com/jjadeseravla/Dino_Chatbot#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2"
+  }
 }
