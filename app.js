@@ -22,9 +22,22 @@ app.use(bodyParser.urlencoded({extended: false}));
 //Set Static path
 app.use(express.static(path.join(__dirname, 'public')));
 
+var users = [
+  {
+    id: 1,
+    email: 'joteo@gmail.com',
+  }
+]
+
 app.get('/', function(req, res){
-  res.render('index');
+  res.render('index', {
+    users: users
+  });
 });
+
+app.post('/users/add', function(req, res){
+  console.log(req.body.users);
+})
 
 app.listen(7000, function(){
   console.log('Server started on port 7000');
