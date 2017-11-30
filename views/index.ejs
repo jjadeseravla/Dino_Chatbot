@@ -1,4 +1,6 @@
-<%= users %>
+<% users.forEach(function(user){ %>
+  <li><%=user.email %></li>
+<% }) %>
 
 <!-- <form method='POST' action='/users/add'>
   <label>Person</label><br>
