@@ -1,6 +1,9 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
+var mongojs = require('mongojs');
+var db = mongojs('chatbot', ['users'])
+
 
 var app = express();
 
@@ -30,8 +33,11 @@ var users = [
 ]
 
 app.get('/', function(req, res){
-  res.render('index', {
-    users: users
+  db.users.find(function(err, docs){
+    console.log(docs);
+    res.render('index', {
+      users: docs
+    });
   });
 });
 
