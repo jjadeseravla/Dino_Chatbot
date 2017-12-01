@@ -36,8 +36,19 @@ app.get('/', function(req, res){
 });
 
 app.post('/users/add', function(req, res){
-  console.log(req.body.email);
-})
+  var newUser = {
+    id: users.length,
+    email: req.body.email
+  }
+
+  users.push(newUser);
+
+  console.log(newUser);
+  res.render('index', {
+    users: users
+  });
+  res.end();
+});
 
 app.listen(7000, function(){
   console.log('Server started on port 7000');
