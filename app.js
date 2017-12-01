@@ -25,12 +25,12 @@ app.use(bodyParser.urlencoded({extended: false}));
 //Set Static path
 app.use(express.static(path.join(__dirname, 'public')));
 
-var users = [
+ var users = [
   {
-    id: 1,
-    email: 'joteo@gmail.com',
+//     id: 1,
+//     email: 'joteo@gmail.com',
   }
-]
+ ]
 
 app.get('/', function(req, res){
   db.users.find(function(err, docs){
@@ -42,19 +42,44 @@ app.get('/', function(req, res){
 });
 
 app.post('/users/add', function(req, res){
-  var newUser = {
-    id: users.length,
-    email: req.body.email
-  }
+  db.users.find(function(err, docs){
+    //console.log(docs);
+      users = docs;
+      var newUser = {
+        id: users.length,
+        email: req.body.email
+      };
+        users.push(newUser);
 
-  users.push(newUser);
 
-  console.log(newUser);
-  res.render('index', {
-    users: users
-  });
-  res.end();
+        db.users.insert(newUser, function(err, result){
+          if(err){
+            console.log(err);
+          }
+          //console.log(newUser);
+          //users = getCurrentDocs();
+          //console.log(docs);
+          res.render('index', {
+            users: users
+          });
+          // res.redirect('/');
+        })
+
+
+    });
+
+
+
+  //users.push(newUser);
+
 });
+
+function getCurrentDocs() {
+  db.users.find(function(err, docs){
+    console.log(docs);
+    return docs;
+  });
+}
 
 app.listen(7000, function(){
   console.log('Server started on port 7000');
